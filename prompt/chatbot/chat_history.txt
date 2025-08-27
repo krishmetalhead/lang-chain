@@ -1,0 +1,4 @@
+HumanMessage(content="Hi Helpdesk. This is regarding a refund ")
+AIMessage(content="Yes. I can see you initiated a refund with ID 12345")
+HumanMessage(content="Where is my refund ")
+AIMessage(content="Seller has initiated the refund")
