@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-model = ChatOpenAI(model='gpt-4o',)
+model = ChatOpenAI(model='gpt-4o')
 
 template = ChatPromptTemplate([
         ("system", "Order Related Queries Helpdesk"),  
@@ -33,7 +33,10 @@ prompt = template.invoke({
 #chat_history.append(prompt)
 
 print(prompt)
-print(AIMessage(content=model.invoke(prompt).content))
+chat_response = AIMessage(content=model.invoke(prompt))
+print(chat_response.content)
+
+
 
 
 
