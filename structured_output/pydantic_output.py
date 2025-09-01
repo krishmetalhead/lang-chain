@@ -15,6 +15,7 @@ class Review(BaseModel):
 
 
 structured_model = model.with_structured_output(Review)
+print(structured_model)
 
 result = structured_model.invoke('The phone hardware is great but software has multiple issue. Display is not' \
 'upto the mark. RAM has glitches. Camera is good, which takes ood snaps in daylight but lacks in night .Overall in the proce range , the phone lacks expected behaviour.')
