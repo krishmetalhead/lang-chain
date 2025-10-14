@@ -1,8 +1,9 @@
-#https://www.youtube.com/watch?v=k13WK0bxQP0&t=321s
+#https://www.youtube.com/watch?v=pJdMxwXBsk0
 from langchain_huggingface import HuggingFaceEmbeddings, HuggingFaceEndpointEmbeddings
 from langchain.schema import Document
 from langchain_chroma import Chroma
 from dotenv import load_dotenv
+
 
 load_dotenv()
 
@@ -32,9 +33,19 @@ vector_stote = Chroma(
 vector_stote.add_documents(docs)
 print('end adding in chroma')
 data = vector_stote.get(include=['embeddings'])
-print(data)
-result = vector_stote.similarity_search(
-    query='Who plays for the biggest club from Saudi Arabia',k=1
+
+retriever = vector_stote.as_retriever(
+     search_type="similarity_score_threshold",
+     search_kwargs={"score_threshold": 0.5}
 )
-print(result)
+
+query = "Who is Ronaldo"
+retrieved_docs = retriever.invoke(query)
+
+for doc in retrieved_docs:
+    print(doc.page_content)
+
+#import shutil
+#shutil.rmtree("./chroma_db")
+
 
