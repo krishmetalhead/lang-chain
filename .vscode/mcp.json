@@ -9,6 +9,17 @@
       "env": {
         "GITHUB_PERSONAL_ACCESS_TOKEN": ""
       }
+    },
+    "serviceNow": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-servicenow"
+      ],
+      "env": {
+        "SERVICENOW_PERSONAL_ACCESS_TOKEN": "",
+        "SERVICENOW_URL": "https://<YOUR_INSTANCE>.service-now.com"
+      }
     }
   }
 }
